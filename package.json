@@ -1,0 +1,32 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "config": "^3.3.8",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "events": "^3.3.0",
+    "express": "^4.18.2",
+    "fs": "0.0.1-security",
+    "jsonwebtoken": "^9.0.0",
+    "koa": "^2.13.4",
+    "koa-body": "^5.0.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-combine-routers": "^4.0.2",
+    "koa-compose": "^4.1.0",
+    "koa-compress": "^5.1.0",
+    "koa-cookie-parser": "^1.0.0",
+    "koa-router": "^12.0.0",
+    "mongoose": "^6.6.5",
+    "path": "^0.12.7"
+  }
+}
