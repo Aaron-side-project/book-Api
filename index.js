@@ -9,6 +9,8 @@ require('dotenv').config()
 
 const app = new Koa();
 
+const server = require('http').createServer(app.callback());
+const io = require('socket.io')(server, {cors: true});
 
 app.proxy = true;
 app.use(compress({ br: false }));
@@ -24,6 +26,16 @@ app.use(bodyParser({
 	parsedMethods: ['POST', 'PUT', 'GET', 'DELETE'],
 	multipart: true,
 }));
+
+io.on('connection', (socket) => {
+	socket.on('disconnect', () => {
+		console.log('user disconnected');
+	});
+
+	socket.on('message', (msg) => {
+		console.log(msg);
+	});
+});
 
 
 require('./controller')(app);
@@ -41,6 +53,10 @@ const connect = async () => {
 app.listen(port, () => {
   connect();
   console.log(`connected to ${port} backend`);
+});
+
+server.listen(5001, () => {
+	console.log(`connected to ${5001} socket server`);
 });
 
 module.exports = app;
